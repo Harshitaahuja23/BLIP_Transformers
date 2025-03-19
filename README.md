@@ -33,7 +33,7 @@ BLIP (Bootstrapping Language-Image Pretraining) tackles these problems using two
 - Unifies understanding & generation: The MED architecture allows BLIP to handle both image-text retrieval and text generation effectively.
 - Cleans training data: CapFilt removes noise from web datasets, ensuring higher-quality supervision.
 - Achieves state-of-the-art (SOTA) performance on multiple tasks: 
-  - +2.7% Recall@1 in image-text retrieval (COCO dataset).
+  - +2.7% Recall in image-text retrieval (COCO dataset).
   - +2.8% CIDEr in image captioning.
   - +1.6% VQA Score in Visual Question Answering.
   - Zero-shot generalization to video-language tasks without additional training.
