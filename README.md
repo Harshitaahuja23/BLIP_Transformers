@@ -116,34 +116,41 @@ for epoch in training_epochs:
 
 **What was overlooked by the authors?**
 - Lack of Structured Scene Understanding
-  - BLIP focuses on learning from raw image-text pairs but does not incorporate structured knowledge like scene graphs or commonsense reasoning.
+  - BLIP focuses on learning from raw image-text pairs but does not incorporate structured knowledge like common sense reasoning.
   - This limits its ability to capture relationships between objects in complex images (e.g., spatial understanding, object interactions).
   - Future work could integrate graph-based vision-language models (e.g., incorporating structured annotations) to enhance reasoning capabilities.
 - Limited Temporal Modeling for Video
   - BLIP achieves strong zero-shot transfer to video-language tasks but does not explicitly model temporal dependencies.
-  - Time-sensitive tasks, such as event tracking in videos, could benefit from transformers designed for video processing (e.g., TimeSformer, VideoMAE).
-  - A video-language variant of BLIP could improve generalization to multimodal real-world scenarios.
+  - Time-sensitive tasks, such as event tracking in videos, could benefit from transformers designed for video processing 
  
 **What could have been developed further?**
-- Synthetic Caption Diversity in CapFilt
-  - The CapFilt module generates only one synthetic caption per image.
-  - Generating multiple diverse captions per image could improve model robustness by introducing varied linguistic expressions.
-  - A diversity-enhanced captioning model (e.g., using nucleus sampling with higher variance) might yield better generalization.
-- Effectiveness of CapFilt Across Domains
-  - CapFilt effectively filters noise in general datasets, but its performance on domain-specific data (e.g., medical, scientific, remote sensing) is untested.
-  - Domain-adaptive captioning models could be explored for specialized datasets where generic captions might not be useful.
-- Computational Efficiency of CapFilt
-  - While CapFilt improves data quality, it introduces additional computation overhead.
-  - Could a self-supervised filtering mechanism (e.g., contrastive learning on clean vs. noisy captions) reduce computational costs?
+- More Diverse Captions in CapFilt
+  - Currently, CapFilt generates only one caption per image.
+  - Creating multiple captions with different phrasing could help the model understand varied expressions and improve generalization.
+- Reducing Computation Costs
+  - CapFilt improves data quality but adds extra processing steps. Has to generate new captions for all images and filter out bad captions before training starts.
+  - Could use a self-supervised filtering mechanism (e.g., contrastive learning on clean vs. noisy captions) reduce computational costs by using similarity scores
  
 **Were there any errors or inconsistencies?**
 - Computational Cost vs. Benefit
   - The captioning + filtering pipeline requires extra processing, which might not be scalable for extremely large datasets.
-  - Would an iterative self-labeling method (e.g., self-training with pseudo-labels) be more cost-effective?
+  - An iterative self-labeling method (e.g., self-training with pseudo-labels) may be more cost-effective
 - Comparisons with Newer Models
   - Since BLIP’s release, Flamingo (DeepMind, 2022) and LLaVA (2023) have introduced improved multimodal reasoning.
   - While BLIP excels in pretraining efficiency, newer models achieve better few-shot learning with instruction tuning.
   - BLIP’s approach could be enhanced with multimodal instruction tuning for improved real-world usability.
+ 
+
+## Strengths and Weaknesses of BLIP
+
+| **Feature**   | **Strengths** ✅  | **Weaknesses** ❌  |
+|--------------|------------------|------------------|
+| **Pretraining Efficiency** | Uses a **flexible MED architecture** for vision-language learning | **Not optimized for few-shot learning** (struggles with small datasets) |
+| **Data Quality** | **CapFilt** improves training by filtering out noisy captions | **CapFilt adds extra computation steps**, making it slower |
+| **Multimodal Learning** | Supports both **understanding & generation tasks** | Lacks **instruction tuning**, unlike LLaVA |
+| **Zero-shot Transfer** | Performs well on **image-to-text and video tasks** without extra training | **No explicit temporal modeling** for videos |
+| **Computational Cost** | More **efficient than models like Flamingo** | **Still requires large-scale training**, making it expensive |
+
 
 ## Impacts
 
@@ -166,13 +173,7 @@ BLIP’s impact can be analyzed through its connections to past, present, and fu
   - CLIP (OpenAI, 2021): Used contrastive learning for vision-language understanding but lacked generative capabilities.
   - ALBEF (2021): Combined contrastive learning and matching but did not effectively filter noisy data.
   - SimVLM (2021): Focused on language modeling but lacked strong retrieval performance.
- 
-- Present: How BLIP Compares to Current State-of-the-Art
-  - BLIP achieved state-of-the-art results on multiple vision-language tasks, including: 
-    - +2.7% in Recall@1 for image-text retrieval.
-    - +2.8% in CIDEr for image captioning.
-    - +1.6% in VQA for visual question answering.
-  - Zero-shot transfer to video tasks, proving its strong generalization ability.
+
  
 **Future Trends & Where AI is Heading**
 
@@ -183,7 +184,7 @@ BLIP’s impact can be analyzed through its connections to past, present, and fu
   - BLIP’s zero-shot video performance is promising but lacks temporal modeling.
   - Future models might integrate video-language transformers like TimeSformer or VideoMAE.
 - Domain-Specific Vision-Language Learning
-  - BLIP was trained on general datasets. Could CapFilt be adapted for specialized fields like medical imaging, scientific literature, or robotics?
+  - BLIP was trained on general datasets like COCO. 
   - Future models might use custom synthetic captioning techniques for specific domains.
 
 ## Resources
@@ -213,6 +214,10 @@ Many existing vision-language datasets, such as Conceptual Captions (CC12M) and 
 BLIP introduces CapFilt (Captioning + Filtering) to improve dataset quality:
 - Captioner: Generates synthetic captions for web images using a fine-tuned image-grounded text decoder.
 - Filter: Removes low-quality or irrelevant captions using an image-grounded text encoder trained to distinguish matched vs. unmatched captions.
+
+
+<img width="973" alt="Screenshot 2025-03-19 at 10 45 30 AM" src="https://github.com/user-attachments/assets/41d2c892-89c8-4c59-aa99-4d37eb1d6485" />
+
 
 Why is this necessary?
 - Noisy captions misguide learning, making it harder for the model to align visual and textual information.
