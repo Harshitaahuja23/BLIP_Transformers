@@ -64,3 +64,27 @@ BLIP is built on a Multimodal Mixture of Encoder-Decoder (MED), a flexible visio
 **Key Advantage**: Unlike previous models, BLIP’s MED architecture can switch between all three modes, making it highly flexible for both understanding and generation tasks.
 
 <img width="478" alt="image" src="https://github.com/user-attachments/assets/3f50f488-107e-4089-b952-db178591ac84" />
+<img width="960" alt="Screenshot 2025-03-18 at 11 52 47 PM" src="https://github.com/user-attachments/assets/f6623e2e-585b-4c89-9290-f6a0369a1ec2" />
+
+### Pre-training Objectives
+BLIP is optimized using three key training objectives:
+- Image-Text Contrastive Loss (ITC) → Aligns image and text representations to distinguish positive vs. negative pairs.
+- Image-Text Matching Loss (ITM) → Fine-grained classification of matched vs. unmatched image-text pairs.
+- Language Modeling Loss (LM) → Trains the decoder to generate captions from images.
+
+Each image-text pair only requires one forward pass through the image encoder but three passes through the text encoder, ensuring efficient computation.
+
+### CapFilt: Improving Data Quality
+**Problem**: Web-crawled datasets contain noisy captions that are often misaligned with image content, making training inefficient.
+**Solution**: CapFilt (Captioning + Filtering)
+- **Captioner (Text Decoder - LM Fine-tuned)**: Generates synthetic captions for web images.
+- **Filter (Text Encoder - ITC & ITM Fine-tuned)**: Removes noisy captions that don’t align with images.
+- **Final dataset**: Combination of filtered synthetic captions + human-annotated captions, leading to higher-quality training data.
+
+**Impact**: Cleaner training data leads to better model generalization and performance across multiple vision-language tasks.
+
+
+
+
+
+
