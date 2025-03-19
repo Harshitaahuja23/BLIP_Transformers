@@ -43,26 +43,24 @@ BLIP (Bootstrapping Language-Image Pretraining) tackles these problems using two
 1. Why is it important for a vision-language model to handle both understanding and generation tasks instead of focusing on just one?
 2. How does CapFilt improve training data quality, and why is filtering noisy web captions necessary for vision-language models?
 
+## Architecture Overview & Methodology
 
+### BLIP Model Architecture
 
+BLIP is built on a Multimodal Mixture of Encoder-Decoder (MED), a flexible vision-language model that supports three different modes:
+- Unimodal Encoder (ITC Loss - Contrastive Learning):
+  - Separately encodes images and text.
+  - Image encoder is a Vision Transformer (ViT) that converts images into patch-based embeddings.
+  - Text encoder is BERT-based, using a [CLS] token to summarize text.
+- Image-Grounded Text Encoder (ITM Loss - Matching Learning):
+  - Introduces cross-attention (CA) layers between self-attention layers and feed-forward networks.
+  - Uses an [Encode] token to capture fine-grained image-text alignment.
+  - Helps improve retrieval tasks by distinguishing matched vs. unmatched pairs.
+- Image-Grounded Text Decoder (LM Loss - Language Modeling):
+  - Replaces bi-directional self-attention with causal self-attention.
+  - Uses [Decode] token to generate descriptive captions for images.
+  - Enables better generalization to captioning and text generation tasks.
 
+**Key Advantage**: Unlike previous models, BLIP’s MED architecture can switch between all three modes, making it highly flexible for both understanding and generation tasks.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="478" alt="image" src="https://github.com/user-attachments/assets/3f50f488-107e-4089-b952-db178591ac84" />
