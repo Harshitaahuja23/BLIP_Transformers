@@ -15,11 +15,11 @@ These challenges limit the effectiveness of vision-language models in real-world
 
 BLIP (Bootstrapping Language-Image Pretraining) tackles these problems using two key innovations:
 - Multimodal Mixture of Encoder-Decoder (MED):
- - A flexible vision-language model that can function as:
-  - A unimodal encoder for retrieval tasks.
-  - An image-grounded text encoder for multimodal understanding.
-  - An image-grounded text decoder for text generation.
- - Jointly pre-trained on three key objectives: 
+  - A flexible vision-language model that can function as:
+    - A unimodal encoder for retrieval tasks.
+    - An image-grounded text encoder for multimodal understanding.
+    - An image-grounded text decoder for text generation.
+  - Jointly pre-trained on three key objectives: 
 	Image-Text Contrastive Loss (ITC): Aligns image & text embeddings.
 	Image-Text Matching Loss (ITM): Distinguishes matched vs. mismatched image-text pairs.
 	Language Modeling Loss (LM): Enables image captioning.
