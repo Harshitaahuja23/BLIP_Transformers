@@ -143,13 +143,13 @@ for epoch in training_epochs:
 
 ## Strengths and Weaknesses of BLIP
 
-| **Feature**   | **Strengths** ✅  | **Weaknesses** ❌  |
+| **Feature**   | **Strengths**   | **Weaknesses**   |
 |--------------|------------------|------------------|
-| **Pretraining Efficiency** | Uses a **flexible MED architecture** for vision-language learning | **Not optimized for few-shot learning** (struggles with small datasets) |
-| **Data Quality** | **CapFilt** improves training by filtering out noisy captions | **CapFilt adds extra computation steps**, making it slower |
-| **Multimodal Learning** | Supports both **understanding & generation tasks** | Lacks **instruction tuning**, unlike LLaVA |
-| **Zero-shot Transfer** | Performs well on **image-to-text and video tasks** without extra training | **No explicit temporal modeling** for videos |
-| **Computational Cost** | More **efficient than models like Flamingo** | **Still requires large-scale training**, making it expensive |
+| Pretraining Efficiency | Uses a flexible MED architecture for vision-language learning | Not optimized for few-shot learning (struggles with small datasets) |
+| Data Quality** | CapFilt improves training by filtering out noisy captions | CapFilt adds extra computation steps, making it slower |
+| Multimodal Learning | Supports both understanding & generation tasks | Lacks instruction tuning, unlike LLaVA |
+| Zero-shot Transfer | Performs well on image-to-text and video tasks without extra training | No explicit temporal modeling for videos |
+| Computational Cost | More efficient than models like Flamingo | Still requires large-scale training, making it expensive |
 
 
 ## Impacts
@@ -194,6 +194,7 @@ BLIP’s impact can be analyzed through its connections to past, present, and fu
 3.	[Salesforce AI Blog on BLIP](https://www.salesforce.com/blog/blip-bootstrapping-language-image-pretraining/)
 4.	[BLIP-2: Advancements in Vision-Language Pre-training](https://arxiv.org/abs/2301.12597)
 5.	[BLIP Image Captioning Model on Hugging Face](https://huggingface.co/Salesforce/blip-image-captioning-base)
+
 
 ## Answers to Research Questions
 
