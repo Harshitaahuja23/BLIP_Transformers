@@ -127,11 +127,8 @@ for epoch in training_epochs:
   - CapFilt improves data quality but adds extra processing steps. Has to generate new captions for all images and filter out bad captions before training starts.
   - Could use a self-supervised filtering mechanism (e.g., contrastive learning on clean vs. noisy captions) reduce computational costs by using similarity scores
  
-**Were there any errors or inconsistencies?**
-- Computational Cost vs. Benefit
-  - The captioning + filtering pipeline requires extra processing, which might not be scalable for extremely large datasets.
-  - An iterative self-labeling method (e.g., self-training with pseudo-labels) may be more cost-effective
-- Comparisons with Newer Models
+
+**Comparisons with Newer Models**
   - Since BLIP’s release, Flamingo (DeepMind, 2022) and LLaVA (2023) have introduced improved multimodal reasoning.
   - While BLIP excels in pretraining efficiency, newer models achieve better few-shot learning with instruction tuning.
   - BLIP’s approach could be enhanced with multimodal instruction tuning for improved real-world usability.
