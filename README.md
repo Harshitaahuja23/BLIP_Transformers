@@ -169,7 +169,7 @@ BLIP’s impact can be analyzed through its connections to past, present, and fu
  
 - Present: How BLIP Compares to Current State-of-the-Art
   - BLIP achieved state-of-the-art results on multiple vision-language tasks, including: 
-    - +2.7% in Recall@1 for image-text retrieval.
+    - +2.7% in Recall for image-text retrieval.
     - +2.8% in CIDEr for image captioning.
     - +1.6% in VQA for visual question answering.
   - Zero-shot transfer to video tasks, proving its strong generalization ability.
