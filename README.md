@@ -2,7 +2,7 @@
 
 **Authors: Junnan Li, Dongxu Li, Caiming Xiong, Steven Hoi**
 
- ## Overview
+## Overview
 ### Context & Problem Statement
 
 Vision-language pretraining (VLP) has driven significant progress in multimodal learning, enabling models to connect images and text. However, existing pre-trained models face key limitations:
@@ -144,6 +144,70 @@ for epoch in training_epochs:
   - Since BLIP’s release, Flamingo (DeepMind, 2022) and LLaVA (2023) have introduced improved multimodal reasoning.
   - While BLIP excels in pretraining efficiency, newer models achieve better few-shot learning with instruction tuning.
   - BLIP’s approach could be enhanced with multimodal instruction tuning for improved real-world usability.
+
+## Impacts
+
+**How Has BLIP Changed the AI Landscape?**
+
+BLIP introduced a more unified and effective approach to vision-language pretraining by solving two major issues in the field:
+
+- Bridging Understanding & Generation
+  - Previous models specialized either in retrieval-based tasks (e.g., CLIP) or in generation-based tasks (e.g., SimVLM).
+  - BLIP’s Multimodal Mixture of Encoder-Decoder (MED) allows seamless switching between both tasks, making it a more versatile vision-language model.
+- Improving Data Quality with CapFilt
+  - Most existing vision-language models rely on web-scraped datasets, which contain noisy, unfiltered captions.
+  - BLIP introduced CapFilt (Captioning + Filtering), which generates and filters synthetic captions, improving data quality and model performance.
+ 
+**Importance of BLIP & Its Connections to Other Work**
+
+BLIP’s impact can be analyzed through its connections to past, present, and future work:
+
+- Past: How BLIP Built on Previous Research
+  - CLIP (OpenAI, 2021): Used contrastive learning for vision-language understanding but lacked generative capabilities.
+  - ALBEF (2021): Combined contrastive learning and matching but did not effectively filter noisy data.
+  - SimVLM (2021): Focused on language modeling but lacked strong retrieval performance.
+ 
+- Present: How BLIP Compares to Current State-of-the-Art
+  - BLIP achieved state-of-the-art results on multiple vision-language tasks, including: 
+    - +2.7% in Recall@1 for image-text retrieval.
+    - +2.8% in CIDEr for image captioning.
+    - +1.6% in VQA for visual question answering.
+  - Zero-shot transfer to video tasks, proving its strong generalization ability.
+ 
+**Future Trends & Where AI is Heading**
+
+- Multimodal Instruction Tuning
+  - Newer models like Flamingo (2022) & LLaVA (2023) show that instruction tuning improves adaptability.
+  - BLIP could be enhanced by training with human prompts for better interactive AI applications.
+- Improved Video Understanding
+  - BLIP’s zero-shot video performance is promising but lacks temporal modeling.
+  - Future models might integrate video-language transformers like TimeSformer or VideoMAE.
+- Domain-Specific Vision-Language Learning
+  - BLIP was trained on general datasets. Could CapFilt be adapted for specialized fields like medical imaging, scientific literature, or robotics?
+  - Future models might use custom synthetic captioning techniques for specific domains.
+
+## Resources
+
+1.	[BLIP Official GitHub Repository](https://github.com/salesforce/BLIP)
+2.	[BLIP Research Paper on arXiv](https://arxiv.org/abs/2201.12086)
+3.	[Salesforce AI Blog on BLIP](https://www.salesforce.com/blog/blip-bootstrapping-language-image-pretraining/)
+4.	[BLIP-2: Advancements in Vision-Language Pre-training](https://arxiv.org/abs/2301.12597)
+5.	[BLIP Image Captioning Model on Hugging Face](https://huggingface.co/Salesforce/blip-image-captioning-base)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
