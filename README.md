@@ -76,13 +76,40 @@ Each image-text pair only requires one forward pass through the image encoder bu
 
 ### CapFilt: Improving Data Quality
 **Problem**: Web-crawled datasets contain noisy captions that are often misaligned with image content, making training inefficient.
+
 **Solution**: CapFilt (Captioning + Filtering)
+
 - **Captioner (Text Decoder - LM Fine-tuned)**: Generates synthetic captions for web images.
 - **Filter (Text Encoder - ITC & ITM Fine-tuned)**: Removes noisy captions that don’t align with images.
 - **Final dataset**: Combination of filtered synthetic captions + human-annotated captions, leading to higher-quality training data.
 
 **Impact**: Cleaner training data leads to better model generalization and performance across multiple vision-language tasks.
 
+## Pseudocode
+```python
+Initialize Vision Transformer (ViT) as Image Encoder
+Initialize BERT-based Text Encoder
+Initialize Cross-Attention and Feed-Forward Networks for MED Architecture
+
+for epoch in training_epochs:
+    for (image, text) in dataset:
+        # Step 1: Compute Unimodal Encoding (ITC)
+        image_features = ViT(image)
+        text_features = BERT(text)
+        ITC_loss = contrastive_loss(image_features, text_features)
+
+        # Step 2: Compute Image-Grounded Text Encoding (ITM)
+        multimodal_representation = cross_attention(image_features, text_features)
+        ITM_loss = binary_classification(multimodal_representation)
+
+        # Step 3: Compute Image-Grounded Text Decoding (LM)
+        generated_caption = autoregressive_decoder(image)
+        LM_loss = cross_entropy_loss(generated_caption, ground_truth_caption)
+
+        # Step 4: Update Model Parameters
+        total_loss = ITC_loss + ITM_loss + LM_loss
+        backpropagate(total_loss)
+        update_model()
 
 
 
