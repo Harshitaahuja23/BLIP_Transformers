@@ -11,7 +11,7 @@ Vision-language pretraining (VLP) has driven significant progress in multimodal 
 
 These challenges limit the effectiveness of vision-language models in real-world applications, where both understanding and generation capabilities are crucial.
 
-#### BLIP’s Approach
+### BLIP’s Approach
 
 BLIP (Bootstrapping Language-Image Pretraining) tackles these problems using two key innovations:
 - Multimodal Mixture of Encoder-Decoder (MED):
@@ -28,4 +28,41 @@ BLIP (Bootstrapping Language-Image Pretraining) tackles these problems using two
     - Generating synthetic captions for web images using a Captioner.
     - Filtering out noisy captions from both web-sourced and synthetic captions using a Filter.
   - This results in a cleaner and more informative training dataset.
+
+### How BLIP Addresses the Problem
+- Unifies understanding & generation: The MED architecture allows BLIP to handle both image-text retrieval and text generation effectively.
+- Cleans training data: CapFilt removes noise from web datasets, ensuring higher-quality supervision.
+- Achieves state-of-the-art (SOTA) performance on multiple tasks: 
+  - +2.7% Recall@1 in image-text retrieval (COCO dataset).
+  - +2.8% CIDEr in image captioning.
+  - +1.6% VQA Score in Visual Question Answering.
+  - Zero-shot generalization to video-language tasks without additional training.
+
+## Research Questions
+
+1. Why is it important for a vision-language model to handle both understanding and generation tasks instead of focusing on just one?
+2. How does CapFilt improve training data quality, and why is filtering noisy web captions necessary for vision-language models?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
