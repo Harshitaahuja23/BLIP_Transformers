@@ -194,9 +194,29 @@ BLIP’s impact can be analyzed through its connections to past, present, and fu
 4.	[BLIP-2: Advancements in Vision-Language Pre-training](https://arxiv.org/abs/2301.12597)
 5.	[BLIP Image Captioning Model on Hugging Face](https://huggingface.co/Salesforce/blip-image-captioning-base)
 
+## Answers to Research Questions
 
+1. **Why is it important for a vision-language model to handle both understanding and generation tasks instead of focusing on just one?**
 
+Most prior vision-language models are specialized for either understanding-based tasks (e.g., image-text retrieval) or generation-based tasks (e.g., image captioning). This specialization limits their adaptability to real-world applications, where a model may need to both comprehend and generate text from images.
 
+BLIP addresses this limitation with the Multimodal Mixture of Encoder-Decoder (MED), which allows it to:
+
+- Retrieve and match relevant text for a given image (understanding).
+- Generate descriptive captions for images (generation).
+- Adapt flexibly to both tasks with a single model, eliminating the need for task-specific architectures.
+
+2. **How does CapFilt improve training data quality, and why is filtering noisy web captions necessary for vision-language models?**
+
+Many existing vision-language datasets, such as Conceptual Captions (CC12M) and LAION, are automatically collected from the web, making them noisy and unreliable. These datasets often contain inaccurate or irrelevant text descriptions, which degrade model performance.
+
+BLIP introduces CapFilt (Captioning + Filtering) to improve dataset quality:
+- Captioner: Generates synthetic captions for web images using a fine-tuned image-grounded text decoder.
+- Filter: Removes low-quality or irrelevant captions using an image-grounded text encoder trained to distinguish matched vs. unmatched captions.
+
+Why is this necessary?
+- Noisy captions misguide learning, making it harder for the model to align visual and textual information.
+- Filtered datasets improve supervision, leading to better generalization across different vision-language tasks.
 
 
 
