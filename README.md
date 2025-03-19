@@ -218,14 +218,8 @@ Why is this necessary?
 - Noisy captions misguide learning, making it harder for the model to align visual and textual information.
 - Filtered datasets improve supervision, leading to better generalization across different vision-language tasks.
 
-
-```bibtex
-@article{li2022blip,
-  title={BLIP: Bootstrapping Language-Image Pretraining for Unified Vision-Language Understanding and Generation},
-  author={Li, Junnan and Li, Dongxu and Xiong, Caiming and Hoi, Steven},
-  journal={arXiv preprint arXiv:2201.12086},
-  year={2022}
-}
+## Citation
+1. [Li, J., Li, D., Xiong, C., & Hoi, S. (2022). BLIP: Bootstrapping Language-Image Pretraining for Unified Vision-Language Understanding and Generation](https://arxiv.org/abs/2201.12086)
 
 
 
