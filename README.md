@@ -219,9 +219,13 @@ Why is this necessary?
 - Filtered datasets improve supervision, leading to better generalization across different vision-language tasks.
 
 
-
-
-@article{li2022blip, title={BLIP: Bootstrapping Language-Image Pretraining for Unified Vision-Language Understanding and Generation}, author={Li, Junnan and Li, Dongxu and Xiong, Caiming and Hoi, Steven}, journal={arXiv preprint arXiv:2201.12086}, year={2022} }
+```bibtex
+@article{li2022blip,
+  title={BLIP: Bootstrapping Language-Image Pretraining for Unified Vision-Language Understanding and Generation},
+  author={Li, Junnan and Li, Dongxu and Xiong, Caiming and Hoi, Steven},
+  journal={arXiv preprint arXiv:2201.12086},
+  year={2022}
+}
 
 
 
